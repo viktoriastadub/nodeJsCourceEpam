@@ -1,3 +1,7 @@
 {
-  "name": "NodeMP HW App"
+  "name": "NodeMP HW App",
+  "dataPath": "data",
+  "dirWatcherEventName": "dirwatcher:changed",
+  "fileName": "MOCK_DATA.csv",
+  "resultsFileName": "results.json"
 }
