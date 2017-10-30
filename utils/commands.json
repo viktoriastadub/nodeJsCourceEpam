@@ -1,0 +1,8 @@
+{
+  "commands": {
+    "IO":"io",
+    "TRANSFROM_FILE":"transform-file",
+    "CONVERT":"convert",
+    "IOJSON":"iojson"
+  }
+}
