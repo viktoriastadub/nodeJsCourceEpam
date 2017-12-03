@@ -22,7 +22,7 @@ productRoute.get('/:id', (req, res) => {
     res.send(productMap.get(Number(req.params.id)) || {});
 });
 
-productRoute.post('/api/products', (req, res) => {
+productRoute.post('/', (req, res) => {
     id += 1;
     productMap.set(id, (req.body));
     res.send(productMap);
