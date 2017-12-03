@@ -7,6 +7,11 @@ import cookieParser from 'cookie-parser';
 import cookies  from './middlewares/cookieParser';
 import queryParser from './middlewares/queryParser';
 import bodyParser from 'body-parser';
+import productRoute from './routes/productRoutes';
+import userRoute from './routes/userRoute';
+import authRoute from './routes/authRoutes';
+import authMiddle from './middlewares/authMiddle';
+import passportLocal from './middlewares/localStratagy';
 
 const user = new User('Vika');
 const product = new Product();
@@ -22,23 +27,26 @@ appExpress.use(cookieParser());
 appExpress.use(cookies);
 appExpress.use(queryParser);
 appExpress.use(bodyParser.json());
-appExpress.get('/', (req, res)=> {
-    console.log(req.parsedCoockie);
-    console.log(res);
-});
-appExpress.get('/api/products', (req, res) => {
-    res.send(productMap)
-});
-
-appExpress.get('/api/products/:id', (req, res) => {
-    console.log(req.params.id);
-    res.send(productMap.get(Number(req.params.id)) || {});
-});
-
-appExpress.post('/api/products', (req, res)=> {
-    id += 1;
-    productMap.set(id, (req.body));
-    res.send(productMap);
-
-});
+// appExpress.get('/', (req, res)=> {
+//     console.log(req.parsedCoockie);
+//     console.log(res);
+// });
+appExpress.use('/api/products',productRoute);
+appExpress.use('/api/users',userRoute);
+app.use('/auth',passportLocal);
+// appExpress.get('/api/products', (req, res) => {
+//     res.send(productMap)
+// });
+//
+// appExpress.get('/api/products/:id', (req, res) => {
+//     console.log(req.params.id);
+//     res.send(productMap.get(Number(req.params.id)) || {});
+// });
+//
+// appExpress.post('/api/products', (req, res)=> {
+//     id += 1;
+//     productMap.set(id, (req.body));
+//     res.send(productMap);
+//
+// });
 export default appExpress;

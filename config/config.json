@@ -3,5 +3,6 @@
   "dataPath": "data",
   "dirWatcherEventName": "dirwatcher:changed",
   "fileName": "MOCK_DATA.csv",
-  "resultsFileName": "results.json"
+  "resultsFileName": "results.json",
+  "SECRET_WORD":"secret"
 }
