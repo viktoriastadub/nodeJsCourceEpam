@@ -3,6 +3,23 @@ import path from 'path';
 import Config from '../../config/config.json';
 import parseCSVSSync from 'csv-parse/lib/sync';
 import parse from 'csv-parse';
+import csv from 'node-csv';
+
+export const filterCVS = (file) => {
+    return new Promise((resolve,reject)=>{
+        csv.createParser().parse(file, (err, data) => {
+            if (err) {
+                return reject(err)
+            }
+            const [props, ...items] = data;
+            console.log(props);
+            const filteredData = items.map(vals => vals.reduce((obj, val, idx) => ({...obj, [props[idx]]: val}),{}));
+
+            return resolve(filteredData);
+        });
+    });
+
+};
 
 export default class Importer {
 
