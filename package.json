@@ -19,6 +19,12 @@
     "node-csv": "^0.1.2",
     "nodemon": "^1.12.1",
     "through2": "^2.0.3",
-    "xml2js": "^0.4.19"
+    "xml2js": "^0.4.19",
+    "express": "^4.16.2",
+    "express-qs-parser": "0.0.1",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "jsonwebtoken": "^8.1.0",
+    "passport": "^0.4.0"
   }
 }
